@@ -243,6 +243,7 @@ border: 0;
 display: inline;
 font-size: 100%;
 font: inherit;
+line-height: 1;
 margin: 0;
 padding: 0;
 vertical-align: baseline;
@@ -295,7 +296,7 @@ width:50px;
 
 #betcalc input[type=text][id^=odds_]{
 float:none;
-height: 16px;
+height: 12px;
 margin-top:-4px 0 0 0;
 width:35px;
 }
