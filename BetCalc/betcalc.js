@@ -246,7 +246,6 @@ font: inherit;
 line-height: 1;
 margin: 0;
 padding: 0;
-vertical-align: baseline;
 visibility: visible;
 }
 
@@ -283,6 +282,7 @@ color: #555;
 font-family:Arial;
 font-size: 10px;
 line-height:1.2;
+
 padding:3px;
 text-align:center;
 }
@@ -314,7 +314,7 @@ float:left;
 font-size: 13px;
 font-weight:bold;
 padding-top:2px;
-width:150px;
+width:190px;
 }
 
 #betcalc .button {
