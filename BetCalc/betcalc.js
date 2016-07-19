@@ -296,7 +296,6 @@ width:50px;
 
 #betcalc input[type=text][id^=odds_]{
 float:none;
-height: 12px;
 margin-top:-4px 0 0 0;
 width:35px;
 }
@@ -310,11 +309,12 @@ font-weight:bold;
 
 #betcalc .title {
 cursor: move;
-float:left;
+float: left;
 font-size: 13px;
-font-weight:bold;
-padding-top:2px;
-width:190px;
+font-weight: bold;
+padding-top: 2px;
+padding-bottom: 8px;
+width: 190px;
 }
 
 #betcalc .button {
