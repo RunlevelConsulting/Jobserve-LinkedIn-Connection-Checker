@@ -17,7 +17,7 @@ Installation
  4. Paste the code below into the **URL** _(Chrome / Internet Explorer)_ or **Location** _(Firefox)_  field.
  5. Test the BetCalc appears by clicking the bookmark.
 ```bash 
-javascript:function a(){script=document.createElement("script");script.src="https://raw.githubusercontent.com/RunlevelConsulting/UsefulScripts/master/BetCalc/betcalc.js";document.getElementsByTagName('HEAD')[0].appendChild(script);}a();
+javascript:function a(){script=document.createElement("script");script.src="https://cdn.rawgit.com/RunlevelConsulting/UsefulScripts/master/BetCalc/betcalc.js";document.getElementsByTagName('HEAD')[0].appendChild(script);}a();
 ```
 <br>
 Betting Methods
