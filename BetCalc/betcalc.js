@@ -240,13 +240,11 @@ var css = `
 <style>
 #betcalc div, span, strong, input[type=text] {
 border: 0;
-display: inline;
 font-size: 100%;
 font: inherit;
 line-height: 1;
 margin: 0;
 padding: 0;
-visibility: visible;
 }
 
 #betcalc {
@@ -259,7 +257,10 @@ box-shadow: 5px 5px 5px #888;
 -webkit-border-radius: 15px; 
 border-radius: 15px;
 bottom: 20px;
+box-shadow: none;
+box-sizing: content-box;
 color: #000;
+display: inline;
 font-family: Arial;
 font-size: 10px;
 height: 242px;
@@ -268,7 +269,10 @@ padding: 5px;
 position: fixed;
 right: 20px;
 text-align: left;
+transition: all 0s ease 0s;
 width: 195px;
+vertical-align: baseline;
+visibility: visible;
 }
 
 #betcalc div [id^=stake_], input[type=text][id^=odds_], #entered_cost {
@@ -282,7 +286,6 @@ color: #555;
 font-family:Arial;
 font-size: 10px;
 line-height:1.2;
-
 padding:3px;
 text-align:center;
 }
