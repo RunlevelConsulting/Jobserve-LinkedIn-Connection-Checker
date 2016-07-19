@@ -239,8 +239,16 @@ function betcalc(){
 
 var css = `
 <style>
+#betcalc div, span, a, strong, input[type=text] {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
 #betcalc {
-all: unset;
 background-color:rgba(230, 230, 230, 0.9);
 border: 1px solid #aaa; 
 box-shadow: 5px 5px 5px #888; 
