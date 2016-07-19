@@ -125,7 +125,6 @@ function count_valid_entries(){
     document.getElementById("returns_" + i).innerHTML="0.00"; // Resets
     if (document.getElementById("odds_" + i).value != ''){
       valid_odds_num++; // This odds value is a valid entry
-      entered_cost=entered_cost.replace(/£/gi, ""); // Basic Validation
     }
   }
   return valid_odds_num;
@@ -234,17 +233,17 @@ function betcalc(){
     var text="";
     for (i = 1; i <= 5; i++) {
       if (i == 1){embolden="font-weight:bold;";} else {embolden="font-weight:normal;";}
-      text = text + "£ <div id=\"stake_"+ i +"\" onClick=\"selectall(this.id)\" style=\""+ embolden +"\">---</div> @ <input onKeyUp=\"v(this,'nums');\" type=\"text\" id=\"odds_"+ i +"\" style=\""+ embolden +"\"> = £<span id=\"returns_"+ i +"\">0.00</span><br>";
+      text = text + "&#163; <div id=\"stake_"+ i +"\" onClick=\"selectall(this.id)\" style=\""+ embolden +"\">---</div> @ <input onKeyUp=\"v(this,'nums');\" type=\"text\" id=\"odds_"+ i +"\" style=\""+ embolden +"\"> = &#163;<span id=\"returns_"+ i +"\">0.00</span><br>";
     }
 
 var css = `
 <style>
-#betcalc div, span, a, strong, input[type=text] {
-	margin: 0;
-	padding: 0;
+#betcalc div, span, strong, input[type=text] {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	margin: 0;
+	padding: 0;
 	vertical-align: baseline;
 }
 
@@ -316,6 +315,7 @@ width:150px;
 }
 
 #betcalc .button {
+cursor: pointer;
 background-color:#f0f0f0;
 border: 1px solid #999999;
 border-radius: 0px;
@@ -334,7 +334,7 @@ font-weight: bold;
 </style>
 `;
 
-    newdiv.innerHTML = css + "<div class=\"title\" onmousedown=\"dragStart(event, 'betcalc')\">Bet Calc</div><div id=\"odds_values\" style=\"margin-top:30px;\">" + text + "</div><br><span class=\"bold\">BET AMOUNT:</span><input type=\"text\" id=\"entered_cost\" onKeyUp=\"v(this,'nums');\" value=\"100\"><br><br><span class=\"bold\">TOTAL COST:</span> <span id=\"totalcost\">0.00</span><br><span class=\"bold\">TOTAL PROFIT:</span> <span id=\"totalprofit\">0.00</span><br><span class=\"bold\">% PROFIT:</span> <span id=\"pcprofit\">0</span>%<div style=\"margin-top:10px;text-align:center;\"><a href=\"javascript:void(0);\" onClick=\"workout('dutch');this.blur();\" class=\"button\">Dutch</a><a href=\"javascript:void(0);\" onClick=\"workout('cover');this.blur();\" class=\"button\" style=\"margin: 0px 16px;\">Cover</a><a href=\"javascript:void(0);\" onClick=\"clear_fields();this.blur();\" class=\"button\">Reset</a></div>";
+    newdiv.innerHTML = css + "<div class=\"title\" onmousedown=\"dragStart(event, 'betcalc')\">Bet Calc</div><div id=\"odds_values\" style=\"margin-top:30px;\">" + text + "</div><br><span class=\"bold\">BET AMOUNT:</span><input type=\"text\" id=\"entered_cost\" onKeyUp=\"v(this,'nums');\" value=\"100\"><br><br><span class=\"bold\">TOTAL COST:</span> <span id=\"totalcost\">0.00</span><br><span class=\"bold\">TOTAL PROFIT:</span> <span id=\"totalprofit\">0.00</span><br><span class=\"bold\">% PROFIT:</span> <span id=\"pcprofit\">0</span>%<div style=\"margin-top:10px;text-align:center;\"><span onClick=\"workout('dutch');this.blur();\" class=\"button\">Dutch</span><span onClick=\"workout('cover');this.blur();\" class=\"button\" style=\"margin: 0px 16px;\">Cover</span><span onClick=\"clear_fields();this.blur();\" class=\"button\">Reset</span></div>";
 	
 	
     document.body.appendChild(newdiv);
