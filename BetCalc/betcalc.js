@@ -238,13 +238,19 @@ function betcalc(){
 
 var css = `
 <style>
-#betcalc div, span, strong, input[type=text] {
+#betcalc div, span, strong, input[type=text][id^=odds_] {
 border: 0;
+box-shadow: none;
+box-sizing: content-box;
 font-size: 100%;
 font: inherit;
 line-height: 1;
+min-height: 0;
 margin: 0;
 padding: 0;
+transition: all 0s ease 0s;
+vertical-align: baseline;
+visibility: visible;
 }
 
 #betcalc {
@@ -257,8 +263,6 @@ box-shadow: 5px 5px 5px #888;
 -webkit-border-radius: 15px; 
 border-radius: 15px;
 bottom: 20px;
-box-shadow: none;
-box-sizing: content-box;
 color: #000;
 display: inline;
 font-family: Arial;
@@ -269,10 +273,7 @@ padding: 5px;
 position: fixed;
 right: 20px;
 text-align: left;
-transition: all 0s ease 0s;
 width: 195px;
-vertical-align: baseline;
-visibility: visible;
 }
 
 #betcalc div [id^=stake_], input[type=text][id^=odds_], #entered_cost {
@@ -316,8 +317,8 @@ float: left;
 font-size: 13px;
 font-weight: bold;
 padding-top: 2px;
-padding-bottom: 8px;
-width: 190px;
+padding-bottom: 6px;
+width: 70px;
 }
 
 #betcalc .button {
