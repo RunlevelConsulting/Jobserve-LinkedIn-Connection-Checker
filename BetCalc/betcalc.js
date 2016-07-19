@@ -24,7 +24,8 @@ if(browser.isIE){x=window.event.clientX+document.documentElement.scrollLeft;+doc
 if(browser.isNS){x=event.clientX+window.scrollX;y=event.clientY+window.scrollY;}
 
 dragObj.cursorStartX=x;dragObj.cursorStartY=y;dragObj.elStartLeft=parseInt(dragObj.elNode.style.left,10);dragObj.elStartTop=parseInt(dragObj.elNode.style.top,10);
-if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+window.scrollX-30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+window.scrollY-20;
+if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+20;
+//if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+window.scrollX-30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+window.scrollY-20;
 dragObj.elNode.style.zIndex=++dragObj.zIndex;
 if(browser.isIE){document.attachEvent("onmousemove",dragGo);document.attachEvent("onmouseup",dragStop);window.event.cancelBubble=true;window.event.returnValue=false}
 if(browser.isNS){document.addEventListener("mousemove",dragGo,true);document.addEventListener("mouseup",dragStop,true);event.preventDefault()}}
