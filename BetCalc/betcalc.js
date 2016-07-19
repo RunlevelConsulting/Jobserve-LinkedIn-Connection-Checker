@@ -24,8 +24,7 @@ if(browser.isIE){x=window.event.clientX+document.documentElement.scrollLeft;+doc
 if(browser.isNS){x=event.clientX+window.scrollX;y=event.clientY+window.scrollY;}
 
 dragObj.cursorStartX=x;dragObj.cursorStartY=y;dragObj.elStartLeft=parseInt(dragObj.elNode.style.left,10);dragObj.elStartTop=parseInt(dragObj.elNode.style.top,10);
-if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+20;
-//if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+window.scrollX-30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+window.scrollY-20;
+if(isNaN(dragObj.elStartLeft))dragObj.elStartLeft=event.clientX+window.scrollX-30;if(isNaN(dragObj.elStartTop))dragObj.elStartTop=event.clientY+window.scrollY-20;
 dragObj.elNode.style.zIndex=++dragObj.zIndex;
 if(browser.isIE){document.attachEvent("onmousemove",dragGo);document.attachEvent("onmouseup",dragStop);window.event.cancelBubble=true;window.event.returnValue=false}
 if(browser.isNS){document.addEventListener("mousemove",dragGo,true);document.addEventListener("mouseup",dragStop,true);event.preventDefault()}}
@@ -240,12 +239,14 @@ function betcalc(){
 var css = `
 <style>
 #betcalc div, span, strong, input[type=text] {
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	margin: 0;
-	padding: 0;
-	vertical-align: baseline;
+border: 0;
+display: inline;
+font-size: 100%;
+font: inherit;
+margin: 0;
+padding: 0;
+vertical-align: baseline;
+visibility: visible;
 }
 
 #betcalc {
@@ -257,6 +258,7 @@ box-shadow: 5px 5px 5px #888;
 -moz-border-radius: 15px;
 -webkit-border-radius: 15px; 
 border-radius: 15px;
+bottom: 20px;
 color: #000;
 font-family: Arial;
 font-size: 10px;
@@ -266,8 +268,7 @@ padding: 5px;
 position: fixed;
 right: 20px;
 text-align: left;
-top: 20px;
-width: 195px;   
+width: 195px;
 }
 
 #betcalc div [id^=stake_], input[type=text][id^=odds_], #entered_cost {
@@ -301,7 +302,7 @@ width:35px;
 
 #betcalc #entered_cost {
 float:none;
-margin: -4px 7px 0px 7px;
+margin: -5px 7px 0px 7px;
 width:50px;
 font-weight:bold;
 }
