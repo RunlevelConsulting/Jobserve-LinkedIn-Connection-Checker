@@ -238,7 +238,7 @@ function betcalc(){
 
 var css = `
 <style>
-#betcalc div, span, strong, input[type=text][id^=odds_] {
+#betcalc div, span, strong, input[type=text][id^=odds_] .button .title #entered_cost {
 border: 0;
 box-shadow: none;
 box-sizing: content-box;
