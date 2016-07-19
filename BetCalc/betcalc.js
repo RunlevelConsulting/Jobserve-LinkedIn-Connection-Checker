@@ -125,7 +125,7 @@ function count_valid_entries(){
     document.getElementById("returns_" + i).innerHTML="0.00"; // Resets
     if (document.getElementById("odds_" + i).value != ''){
       valid_odds_num++; // This odds value is a valid entry
-      entered_cost=entered_cost.replace(/£/gi, ""); // Basic Validation
+      entered_cost=entered_cost.replace(/Â£/gi, ""); // Basic Validation
     }
   }
   return valid_odds_num;
@@ -234,12 +234,13 @@ function betcalc(){
     var text="";
     for (i = 1; i <= 5; i++) {
       if (i == 1){embolden="font-weight:bold;";} else {embolden="font-weight:normal;";}
-      text = text + "£ <div id=\"stake_"+ i +"\" onClick=\"selectall(this.id)\" style=\""+ embolden +"\">---</div> @ <input onKeyUp=\"v(this,'nums');\" type=\"text\" id=\"odds_"+ i +"\" style=\""+ embolden +"\"> = £<span id=\"returns_"+ i +"\">0.00</span><br>";
+      text = text + "Â£ <div id=\"stake_"+ i +"\" onClick=\"selectall(this.id)\" style=\""+ embolden +"\">---</div> @ <input onKeyUp=\"v(this,'nums');\" type=\"text\" id=\"odds_"+ i +"\" style=\""+ embolden +"\"> = Â£<span id=\"returns_"+ i +"\">0.00</span><br>";
     }
 
 var css = `
 <style>
 #betcalc {
+all: unset;
 background-color:rgba(230, 230, 230, 0.9);
 border: 1px solid #aaa; 
 box-shadow: 5px 5px 5px #888; 
@@ -285,6 +286,7 @@ width:50px;
 
 #betcalc input[type=text][id^=odds_]{
 float:none;
+height: 20px;
 margin-top:-4px 0 0 0;
 width:35px;
 }
@@ -308,6 +310,7 @@ width:150px;
 #betcalc .button {
 background-color:#f0f0f0;
 border: 1px solid #999999;
+border-radius: 0px;
 color:#000;
 font-family:Arial;
 font-size:10px;
