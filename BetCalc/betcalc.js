@@ -238,7 +238,7 @@ function betcalc(){
 
 var css = `
 <style>
-#betcalc div, span, strong, input[type=text][id^=odds_], .button, .title, #entered_cost {
+#betcalc div, span, strong, input[type=text][id^=odds_], .betcalc_button, .betcalc_title, #entered_cost {
 border: 0;
 box-shadow: none;
 box-sizing: content-box;
@@ -311,7 +311,7 @@ width:50px;
 font-weight:bold;
 }
 
-#betcalc .title {
+#betcalc .betcalc_title {
 cursor: move;
 float: left;
 font-size: 13px;
@@ -321,7 +321,7 @@ padding-bottom: 6px;
 width: 70px;
 }
 
-#betcalc .button {
+#betcalc .betcalc_button {
 cursor: pointer;
 background-color:#f0f0f0;
 border: 1px solid #999999;
@@ -341,7 +341,7 @@ font-weight: bold;
 </style>
 `;
 
-    newdiv.innerHTML = css + "<div class=\"title\" onmousedown=\"dragStart(event, 'betcalc')\">Bet Calc</div><div id=\"odds_values\" style=\"margin-top:30px;\">" + text + "</div><br><span class=\"bold\">BET AMOUNT:</span><input type=\"text\" id=\"entered_cost\" onKeyUp=\"v(this,'nums');\" value=\"100\"><br><br><span class=\"bold\">TOTAL COST:</span> <span id=\"totalcost\">0.00</span><br><span class=\"bold\">TOTAL PROFIT:</span> <span id=\"totalprofit\">0.00</span><br><span class=\"bold\">% PROFIT:</span> <span id=\"pcprofit\">0</span>%<div style=\"margin-top:10px;text-align:center;\"><span onClick=\"workout('dutch');this.blur();\" class=\"button\">Dutch</span><span onClick=\"workout('cover');this.blur();\" class=\"button\" style=\"margin: 0px 16px;\">Cover</span><span onClick=\"clear_fields();this.blur();\" class=\"button\">Reset</span></div>";
+    newdiv.innerHTML = css + "<div class=\"betcalc_title\" onmousedown=\"dragStart(event, 'betcalc')\">Bet Calc</div><div id=\"odds_values\" style=\"margin-top:30px;\">" + text + "</div><br><span class=\"bold\">BET AMOUNT:</span><input type=\"text\" id=\"entered_cost\" onKeyUp=\"v(this,'nums');\" value=\"100\"><br><br><span class=\"bold\">TOTAL COST:</span> <span id=\"totalcost\">0.00</span><br><span class=\"bold\">TOTAL PROFIT:</span> <span id=\"totalprofit\">0.00</span><br><span class=\"bold\">% PROFIT:</span> <span id=\"pcprofit\">0</span>%<div style=\"margin-top:10px;text-align:center;\"><span onClick=\"workout('dutch');this.blur();\" class=\"betcalc_button\">Dutch</span><span onClick=\"workout('cover');this.blur();\" class=\"betcalc_button\" style=\"margin: 0px 16px;\">Cover</span><span onClick=\"clear_fields();this.blur();\" class=\"betcalc_button\">Reset</span></div>";
 	
 	
     document.body.appendChild(newdiv);
