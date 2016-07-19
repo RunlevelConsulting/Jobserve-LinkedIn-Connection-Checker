@@ -244,6 +244,7 @@ box-shadow: none;
 box-sizing: content-box;
 font-size: 100%;
 font: inherit;
+height: 1;
 line-height: 1;
 min-height: 0;
 margin: 0;
