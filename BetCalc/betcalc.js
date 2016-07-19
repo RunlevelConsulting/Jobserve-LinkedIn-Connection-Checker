@@ -295,7 +295,7 @@ width:50px;
 
 #betcalc input[type=text][id^=odds_]{
 float:none;
-height: 20px;
+height: 16px;
 margin-top:-4px 0 0 0;
 width:35px;
 }
