@@ -54,10 +54,10 @@ In this example, if any runner goes on to win, you'll make a profit of about £4
 Other Information
 -------------
 - Assuming you've completed the steps above correctly, this should work on all modern browsers.
+- For various reasons, this tool may look different on different websites and in rare cases may not appear at all. Much effort has been made to mitigate against this.
 - Feel free to input fractional odds, they work too.
 - The BetCalc is draggable! Click, hold and drag the bold **BetCalc** title on the applet.
 - Close the BetCalc tool by clicking the bookmark again.
 - Round your bets to the nearest £5 or £10! Bookies can spot these kinds of bets a mile away and will restrict/close your account if you bet very specific amounts.
-- For various reasons, this tool may looks different on different websites and in rare cases, not at all. Much effort has been made to mitigate against this.
 - **Bet responsibly.**
 
