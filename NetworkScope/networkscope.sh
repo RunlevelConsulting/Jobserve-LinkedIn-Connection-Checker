@@ -182,6 +182,9 @@ for IPRANGE in "${IPRANGES[@]}"; do
       #########################################
       RESULT_IP=$(echo -e "${i}" | grep -v '^#' | grep -v Warning | grep -m 1 -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])')
       RESULT_MAC=$(echo -e "${i}" | grep -i "MAC\ Address" | awk {'print $3'})
+
+      host ${RESULT_IP} > /dev/null 2>&1
+      HOSTEXITCODE=$(echo $?)
       RESULT_HOSTNAME=$(host ${RESULT_IP} | tail -n1 | awk '{ print $NF }' | sed 's/.$//')
 
       # Sed: [0] Remove (XX%), [1] Remove anything after ' - ', [2] Remove anything after ' or '., [3] Every word uppercase
@@ -206,7 +209,7 @@ for IPRANGE in "${IPRANGES[@]}"; do
         fi
       done
 
-      if [[ "${RESULT_HOSTNAME}" == *NXDOMAIN* ]]; 	then	RESULT_HOSTNAME="";			fi
+      if [ "${HOSTEXITCODE}" -ne 0 ];			then	RESULT_HOSTNAME="";			fi
       if [[ -z "${RESULT_PORTS}" ]]; 			then	RESULT_PORTS="<option>None</option>";	fi
       if [[ -z "${RESULT_OS}" ]]; 			then	RESULT_OS="Unknown";	fi
 
