@@ -4,7 +4,7 @@
 
 Just a collection of semi-useful scripts I've written that have helped me in one way or another which I've then neatened up, added a few more options and attempted to make them presentable to the world. Also useful to showcase scripting skills. Scripts to be added periodically as free time allows.
 
-I do my best to make my scripts as lean as possible and avoid repetition wherever possible. I also try to structure my code in a consistent fashion, indented with comments to clearly show a new section of code.
+I do my best to make my scripts as lean as possible and to avoid code repetition. I also try to structure my code in a consistent fashion, indented with comments to clearly show a new section of code.
 
 I'm familiar with the following scripting languages: **BASH/Shell, PHP, Python, Ruby, HTML, CSS, Javascript (inc. AJAX & JQuery), SQL, YAML, AWK, sed, JSON, Actionscript**
 <br><br>
