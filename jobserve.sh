@@ -18,7 +18,7 @@
 ## Options & Setup			##
 ##########################################
 
-INSTRUCTIONS="\nUsage:   ./jobserve.sh --search-id=<SEARCH_ID>\n\nMandatory Flags:\n         --search-id=                   The Jobserve.com Search ID\n\n         You can find the SEARCH_ID by going to Jobserve.com, filling in your job search\n         criteria and hitting Search. The next URL will be:\n         https://www.jobserve.com/gb/en/JobSearch.aspx?shid=<SEARCH_ID>\n\nOptional Flags:\n         --li-file=/path/to/file.csv    Exorted LinkedIn Connections CSV file path\n         --only-connected               Only output jobs from LinkedIn connections\n         --only-unconnected             Only output jobs from LinkedIn strangers\n         --show-jobtitle                Show the Job Title of the posting\n         --show-company                 Show the name of the recruitment agency\n         --unique-names                 Supress multiple jobs from the same agent\n         --output-file=/path/to/file    Send all output to specified file\n         -?                             Show Instructions\n         --help                         Show Instructions\n\n         Export LinkedIn connections at: https://www.linkedin.com/people/export-settings\n"
+INSTRUCTIONS="\nUsage:   ./jobserve.sh --search-id=<SEARCH_ID>\n\nMandatory Flags:\n         --search-id=                   The Jobserve.com Search ID\n\n         You can find the SEARCH_ID by going to Jobserve.com, filling in your job search\n         criteria and hitting Search. The next URL will be:\n         https://www.jobserve.com/gb/en/JobSearch.aspx?shid=<SEARCH_ID>\n\nOptional Flags:\n         --li-file=/path/to/file.csv    Exorted LinkedIn Connections CSV file path\n         --only-connected               Only output jobs from LinkedIn connections\n         --only-unconnected             Only output jobs from LinkedIn strangers\n         --unique-names                 Supress multiple jobs from the same agent\n         -?                             Show Instructions\n         --help                         Show Instructions\n\n         Export LinkedIn connections at: https://www.linkedin.com/psettings/member-data\n"
 
 MESSAGE="\nThanks for using the Jobserve-LinkedIn Connection Checker!\nPlease note that the script is dependent on response times from the Jobserve.com webservers.\nPlease also note that the connection-checker is by no means 100% accurate due to people having slightly different names on Jobserve and LinkedIn (e.g Joe vs Joseph).\n\nContribute to this code at: https://github.com/RunlevelConsulting"
 
@@ -41,14 +41,8 @@ do
            OC=1;;
         "--only-unconnected" )
            OU=1;;
-        "--show-jobtitle" )
-           SJ=1;;
-        "--show-company" )
-           SC=1;;
         "--unique-names" )
            UN=1;;
-        "--output-file="* )
-           OF="${opt#*=}";;
         "--help | -?" )
            echo -e "${INSTRUCTIONS}"; exit 1;;
         *)
@@ -63,7 +57,7 @@ done
 ##########################################
 
 # Validate Search ID
-if [[ ! "${SHID}" =~ ^[A-F0-9]{18}$ ]]
+if [[ ! "${SHID}" =~ ^[A-F0-9]{18,22}$ ]]
 then
     echo -e "\nError: Invalid --search-id\n       Do a search on jobserve.com and the URL will become similar to: https://www.jobserve.com/gb/en/JobSearch.aspx?shid=59A74C6FD4731B96CC\n       Grab the text after '?shid='.\n"
     exit 1
@@ -79,24 +73,6 @@ fi
 if [[ -z "${LI_FILE}" && ( "${OC}" || "${OU}" ) ]] ; then
   echo -e "\nError: In order to use --only-connected or --only-unconnected, you must use the --li-file flag.\n       Go to: https://www.linkedin.com/people/export-settings\n       Add the --li-file=/path/to/file.csv flag to the command.\n"
   exit 1
-fi
-
-# Check --output-file exists, if so, check perms, if not, try to create it
-if [ "${OF}" ]; then
-  if [ ! -f "${OF}" ]; then
-  touch ${OF}
-    if [ "$?" -ne 0 ]; then
-      echo -e "\nError: Could not create file: ${OF}\n"
-      exit 1
-    fi
-  else
-    if [ ! -w "${OF}" ]; then
-      echo -e "\nError: Write permissions not granted on file: ${OF}\n"
-      exit 1
-    fi
-  fi
-else
-  OF="/dev/stdout"
 fi
 
 # Validate exported LinkedIn Connections file
@@ -173,10 +149,6 @@ function getJobDescriptions (){
       fi
     fi
 
-    # Supress company name and job title if variables not declared
-    if [ -z "${SC}" ]; then	unset COMPANYWITHDIVIDER;		fi
-    if [ -z "${SJ}" ]; then	unset TITLEWITHDIVIDER;    		fi
-
     # If LinkedIn file undeclared supress connection status, else analyse
     if [ -z "${LI_FILE}" ]; then
       unset CONNECTIONSTATUSWITHDIVIDER;
@@ -223,11 +195,11 @@ function getJobDescriptions (){
 ##########################################
 
 echo -e "${MESSAGE}"
-echo -e "\n---------- Gathering Job List ---------" >> ${OF}
-getJobList 1 >> ${OF}
-echo -e "\n------------- Job Details -------------" >> ${OF}
-getJobDescriptions ${JOBLIST_ALL} >> ${OF}
-echo -e "\n--------------- Finished --------------\n"  >> ${OF}
+echo -e "\n---------- Gathering Job List ---------"
+getJobList 1
+echo -e "\n------------- Job Details -------------"
+getJobDescriptions ${JOBLIST_ALL}
+echo -e "\n--------------- Finished --------------\n"
 
 
 
