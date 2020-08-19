@@ -10,6 +10,7 @@ When I approach the end of a contract, I simply post an update on LinkedIn that 
 
 This tool also has uses for jobseekers as a method of receiving a condensed view of what roles are available. It may also be useful for recruitment agents to keep an eye on the market - and their competition!
 <br><br>
+
 ## Options
 
 ```bash
@@ -28,25 +29,23 @@ Optional Flags:
          --li-file=/path/to/file.csv    Exorted LinkedIn Connections CSV file path
          --only-connected               Only output jobs from LinkedIn connections
          --only-unconnected             Only output jobs from LinkedIn strangers
-         --show-jobtitle                Show the Job Title of the posting
-         --show-company                 Show the name of the recruitment agency
          --unique-names                 Supress multiple jobs from the same agent
-         --output-file=/path/to/file    Send all output to specified file
          -?                             Show Instructions
          --help                         Show Instructions
 
          Export LinkedIn connections at: https://www.linkedin.com/people/export-settings
 ```
 <br>
+
 ## Example Usage
 
  1. **Obtain Jobserve.com Search ID:**
    - Go to Jobserve.com, fill in your search criteria and hit 'Search'. The next URL will be: https://www.jobserve.com/gb/en/JobSearch.aspx?shid=**SEARCH_ID**
  2. **Export LinkedIn Connections:**
-   - Browse to https://www.linkedin.com/people/export-settings and download a **CSV** copy of your LinkedIn Connections.
+   - Browse to https://www.linkedin.com/psettings/member-data and request a copt of your **Connections**, this takes around 10 minutes.
  
 ```bash
-$ ./jobserve.sh --search-id=7DC44B1B4201643D7F --show-company --show-jobtitle --li-file=~/Downloads/linkedin_connections_export_microsoft_outlook.csv --unique-names
+$ ./jobserve.sh --search-id=C09445030D5D8CA6C816 --li-file=~/Downloads/Connections.csv --unique-names
 
 ---------- Gathering Job List ---------
 Gathering Job IDs, 47 remaining...
@@ -65,11 +64,11 @@ http://www.jobserve.com/EkWns  |  [UNCONNECTED]  |  Christian White  |  Infrastr
 --------------- Finished --------------
 ```
 > **Tip:** Use the **--help** or **-?** flags to see the full list of available flags.
-
 <br>
+
 ## Other Information
 
-This script has been tested as far and wide as my **Ubuntu 14.04** machine.
+This script has been tested as far and wide as my **Ubuntu 18.04** machine.
 Please fork and contribute if you find any bugs.
 
 Jobserve does offer an API, however you have to apply to them stating your explicit reasons for requesting access, furthermore you're also limited by the number of requests that can be made. This script gets past both of those issues. Sorry Jobserve.
