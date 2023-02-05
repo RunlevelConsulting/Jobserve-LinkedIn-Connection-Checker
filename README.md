@@ -33,7 +33,7 @@ Optional Flags:
          -?                             Show Instructions
          --help                         Show Instructions
 
-         Export LinkedIn connections at: https://www.linkedin.com/people/export-settings
+         Export LinkedIn connections at: https://www.linkedin.com/psettings/member-data
 ```
 <br>
 
@@ -42,7 +42,7 @@ Optional Flags:
  1. **Obtain Jobserve.com Search ID:**
    - Go to Jobserve.com, fill in your search criteria and hit 'Search'. The next URL will be: https://www.jobserve.com/gb/en/JobSearch.aspx?shid=**SEARCH_ID**
  2. **Export LinkedIn Connections:**
-   - Browse to https://www.linkedin.com/psettings/member-data and request a copt of your **Connections**, this takes around 10 minutes.
+   - Browse to https://www.linkedin.com/psettings/member-data and request a copy of your **Connections**, this takes around 10 minutes.
  
 ```bash
 $ ./jobserve.sh --search-id=C09445030D5D8CA6C816 --li-file=~/Downloads/Connections.csv --unique-names
@@ -70,5 +70,7 @@ http://www.jobserve.com/EkWns  |  [UNCONNECTED]  |  Christian White  |  Infrastr
 
 This script has been tested as far and wide as my **Ubuntu 18.04** machine.
 Please fork and contribute if you find any bugs.
+
+If you're on a Mac, use the **jobserve_mac.sh** file!
 
 Jobserve does offer an API, however you have to apply to them stating your explicit reasons for requesting access, furthermore you're also limited by the number of requests that can be made. This script gets past both of those issues. Sorry Jobserve.
