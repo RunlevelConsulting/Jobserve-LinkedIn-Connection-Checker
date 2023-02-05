@@ -156,7 +156,7 @@ function getJobDescriptions (){
       CONTACT_FIRSTNAME=$(echo "${CONTACT}" | awk '{print $1}')
       CONTACT_SURNAME=$(echo "${CONTACT}" | awk 'NF>1{print $NF}')
         if [ -z "${CONTACT_SURNAME}" ]; then CONTACT_SURNAME=","; fi
-      COMPANY_FIRSTNAME=$(echo "${COMPANY}" | gegrep -o '[^ ]{3,}' | xargs | awk '{print $1}')
+      COMPANY_FIRSTNAME=$(echo "${COMPANY}" | ggrep -E -o '[^ ]{3,}' | xargs | awk '{print $1}')
 
       READ_LI_FILE=$(cat "${LI_FILE}" | sed "s/'/\&#39;/g")
       CHECK1=$(echo "${READ_LI_FILE}" | ggrep -i ${CONTACT_FIRSTNAME} | ggrep -i ${CONTACT_SURNAME} | wc -l )
